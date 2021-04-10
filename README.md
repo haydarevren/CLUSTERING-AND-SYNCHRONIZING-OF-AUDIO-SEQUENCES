@@ -34,7 +34,12 @@ the time when the anchor point is located in the song (t1)
 
 To simplify: hash = (f1+f2+(t2-t1))+t1
 
-Search Algorithm[CLUSTERING AND SYNCHRONIZING OF AUDIO SEQUENCES.pptx](https://github.com/haydarevren/CLUSTERING-AND-SYNCHRONIZING-OF-AUDIO-SEQUENCES/files/6290371/CLUSTERING.AND.SYNCHRONIZING.OF.AUDIO.SEQUENCES.pptx)
+Search Algorithm:
 
+To identify matchings, the database is queried to itself. Once a sufficient number of landmarks have been identified as coming from the same reference track, with the same relative timing, a match can be confidently declared. 
 
+Normally, a small number of matches (e.g. 5) is sufficient to declare a match, since chance matches are very unlikely. The beauty, and robustness, of this approach is that only a few of the maxima (or landmarks) have to be the same in the reference and query examples to allow a match. By doing this, the relative time differences between where they occur in the database and where they occur in the reference tracks are obtained. 
 
+After obtaining the matches and the relative time differences between where they occur, we need to find each cluster. To do this we used some graph theory applications. With the information of matching audios, we can construct a graph that nodes represent the audios and edges represent matches which have weights of the relative time differences between where matching occur. 
+
+In this graph we need to obtain connected components and the shortest path between them. The depth- first search or breadth first search method can help us to solve this problem.
