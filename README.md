@@ -22,5 +22,19 @@ So a spectrogram for a song will be transformed from the left figure into the ri
 
 ![image](https://user-images.githubusercontent.com/79766032/114278623-b1e12f80-99fe-11eb-8734-ff3d75a7fa9f.png)
 
+To store this in the database in a way in which is efficient to search for a match (easy to index), we choose some of the points from within the simplified spectrogram (called “anchor points”) and zones (called “target zone”).
+
+![image](https://user-images.githubusercontent.com/79766032/114278637-c4f3ff80-99fe-11eb-9af8-be5be88b3342.png)
+
+For each point in the target zone, we create a hash that will be the aggregation of the following: 
+the frequency at which the anchor point is located (f1) 
+the frequency at which the point in the target zone is located (f2)
+the time difference between the time when the point in the target zone is located in the song (t2-t1) 
+the time when the anchor point is located in the song (t1)
+
+To simplify: hash = (f1+f2+(t2-t1))+t1
+
+Search Algorithm[CLUSTERING AND SYNCHRONIZING OF AUDIO SEQUENCES.pptx](https://github.com/haydarevren/CLUSTERING-AND-SYNCHRONIZING-OF-AUDIO-SEQUENCES/files/6290371/CLUSTERING.AND.SYNCHRONIZING.OF.AUDIO.SEQUENCES.pptx)
+
 
 
